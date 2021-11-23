@@ -3,26 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './public/template/error/not-found/not-found.component';
-import { InternalServerErrorComponent } from './public/template/error/internal-server-error/internal-server-error.component';
 import { HeaderComponent } from './public/template/header/header.component';
 import { FooterComponent } from './public/template/footer/footer.component';
 import { HomeComponent } from './public/general/home/home.component';
+import { NavbarComponent } from './public/template/navbar/navbar.component';
+import { NotFoundComponent } from './public/errors/not-found/not-found.component';
+import { InternalServerErrorComponent } from './public/errors/internal-server-error/internal-server-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
-    InternalServerErrorComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    InternalServerErrorComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
