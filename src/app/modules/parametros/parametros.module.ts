@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ParametrosRoutingModule } from './parametros-routing.module';
-import { CrearProponenteComponent } from './proponente/crear-proponente/crear-proponente.component';
-import { EditarProponenteComponent } from './proponente/editar-proponente/editar-proponente.component';
-import { EliminarProponenteComponent } from './proponente/eliminar-proponente/eliminar-proponente.component';
-import { ListarProponenteComponent } from './proponente/listar-proponente/listar-proponente.component';
 import { CrearTipoVinculacionComponent } from './tipoVinculacion/crear-tipo-vinculacion/crear-tipo-vinculacion.component';
 import { EditarTipoVinculacionComponent } from './tipoVinculacion/editar-tipo-vinculacion/editar-tipo-vinculacion.component';
 import { EliminarTipoVinculacionComponent } from './tipoVinculacion/eliminar-tipo-vinculacion/eliminar-tipo-vinculacion.component';
@@ -43,13 +39,8 @@ import { EditarCorreoNotificacionComponent } from './correoNotificacion/editar-c
 import { EliminarCorreoNotificacionComponent } from './correoNotificacion/eliminar-correo-notificacion/eliminar-correo-notificacion.component';
 import { ListarCorreoNotificacionComponent } from './correoNotificacion/listar-correo-notificacion/listar-correo-notificacion.component';
 
-
 @NgModule({
   declarations: [
-    CrearProponenteComponent,
-    EditarProponenteComponent,
-    EliminarProponenteComponent,
-    ListarProponenteComponent,
     CrearTipoVinculacionComponent,
     EditarTipoVinculacionComponent,
     EliminarTipoVinculacionComponent,
@@ -85,11 +76,8 @@ import { ListarCorreoNotificacionComponent } from './correoNotificacion/listar-c
     CrearCorreoNotificacionComponent,
     EditarCorreoNotificacionComponent,
     EliminarCorreoNotificacionComponent,
-    ListarCorreoNotificacionComponent
+    ListarCorreoNotificacionComponent,
   ],
-  imports: [
-    CommonModule,
-    ParametrosRoutingModule
-  ]
+  imports: [CommonModule, ParametrosRoutingModule],
 })
-export class ParametrosModule { }
+export class ParametrosModule {}

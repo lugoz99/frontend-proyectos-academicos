@@ -9,6 +9,7 @@ import { HomeComponent } from './public/general/home/home.component';
 import { NavbarComponent } from './public/template/navbar/navbar.component';
 import { NotFoundComponent } from './public/errors/not-found/not-found.component';
 import { InternalServerErrorComponent } from './public/errors/internal-server-error/internal-server-error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { InternalServerErrorComponent } from './public/errors/internal-server-er
     NotFoundComponent,
     InternalServerErrorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
