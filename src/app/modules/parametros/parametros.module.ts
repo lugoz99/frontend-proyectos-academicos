@@ -38,6 +38,7 @@ import { CrearCorreoNotificacionComponent } from './correoNotificacion/crear-cor
 import { EditarCorreoNotificacionComponent } from './correoNotificacion/editar-correo-notificacion/editar-correo-notificacion.component';
 import { EliminarCorreoNotificacionComponent } from './correoNotificacion/eliminar-correo-notificacion/eliminar-correo-notificacion.component';
 import { ListarCorreoNotificacionComponent } from './correoNotificacion/listar-correo-notificacion/listar-correo-notificacion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,11 @@ import { ListarCorreoNotificacionComponent } from './correoNotificacion/listar-c
     EliminarCorreoNotificacionComponent,
     ListarCorreoNotificacionComponent,
   ],
-  imports: [CommonModule, ParametrosRoutingModule],
+  imports: [
+    CommonModule,
+    ParametrosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ParametrosModule {}

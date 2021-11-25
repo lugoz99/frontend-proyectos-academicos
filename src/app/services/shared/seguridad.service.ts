@@ -22,9 +22,11 @@ export class SeguridadService {
 
   VerifyActiveSession(): boolean {
     let info = this.localStorageService.GetSessionInfo();
-    if (info.tk) {
+    if (info.token) {
+      console.log(`$Verificar sesion tk ${info.token}`);
       info.isLoggedIn = true;
       this.RefreshSessionInfo(info);
+      console.log('verificar session activa: ', true);
       return true;
     } else {
       return false;
@@ -38,7 +40,7 @@ export class SeguridadService {
     return this.sessionInfoSubject.asObservable();
   }
   Login(data: UserCredentialsModel): Observable<SessionDataModel> {
-    console.log('servicio seguridad');
+    console.log('servicio seguridad crear usuario data', data);
     return this.http.post<SessionDataModel>(`${this.url}/identificar-usuario`, {
       usuario: data.username,
       clave: data.password,

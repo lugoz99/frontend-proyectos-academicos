@@ -13,6 +13,7 @@ export class LocalStorageService {
       return false;
     } else {
       let sessionDataString = JSON.stringify(data);
+      console.log('Session Guardada localStorage', sessionDataString);
       localStorage.setItem('session-info', sessionDataString);
       return true;
     }
@@ -21,6 +22,7 @@ export class LocalStorageService {
   RemoveSessionData(): boolean {
     let currentData = localStorage.getItem('session-info');
     if (currentData) {
+      console.log('Session Removida local elimanado');
       localStorage.removeItem('session-info');
       return true;
     } else {
@@ -30,10 +32,11 @@ export class LocalStorageService {
 
   GetToken(): string {
     let currentData = localStorage.getItem('session-info');
+    console.log('currendata token', currentData);
     if (currentData) {
       let sessionDataJson = JSON.parse(currentData);
-      // token viene bajo el parametro tk
-      return sessionDataJson.tk;
+      console.log(`$Token String :${sessionDataJson.token}`);
+      return sessionDataJson.token;
     } else {
       return '';
     }
@@ -42,8 +45,10 @@ export class LocalStorageService {
     let currentData = localStorage.getItem('session-info');
     if (currentData) {
       let sessionDataJson = JSON.parse(currentData);
+      console.log(`Informacion Session ${sessionDataJson}`);
       return sessionDataJson;
     } else {
+      console.log('1');
       return new SessionDataModel();
       // vacio nuevamente
     }

@@ -57,14 +57,27 @@ export class InicioSesionComponent implements OnInit {
       credential.password = credential.password = MD5(
         this.GetDF['password'].value
       ).toString();
-      console.log(credential.password);
+      console.log('Password', credential.password);
       this.securityService.Login(credential).subscribe({
         next: (data: SessionDataModel) => {
-          console.log(data);
-          let saved = this.localStorageService.SaveSessionData(data);
-          data.isLoggedIn = true;
-          this.securityService.RefreshSessionInfo(data); // para por diferentes caminos isloged in este en true
-          this.rooter.navigate(['/home']);
+          console.log('Datos de sesion', data);
+          if (data.token == undefined) {
+            console.log('tk indefinido');
+          }
+          if (
+            data.token != '' &&
+            data.usuario != null &&
+            data.token != undefined
+          ) {
+            let saved = this.localStorageService.SaveSessionData(data);
+            console.log('Saved', saved);
+            console.log('tk', data.token);
+            data.isLoggedIn = true;
+            this.securityService.RefreshSessionInfo(data); // para por diferentes caminos isloged in este en true
+            this.rooter.navigate(['/home']);
+          } else {
+            ShowGeneralMessage(ConfigurationData.INVALID_FORM_MESSAGE);
+          }
         },
         error: (error: any) => {},
         complete: () => {},
