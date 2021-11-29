@@ -40,7 +40,7 @@ export class FacultadService {
 
   EditRecord(data: FacultadModel): Observable<FacultadModel> {
     return this.http.put<FacultadModel>(
-      `${this.url}/facultades/${data.id}`,
+      `${this.url}/facultades${data.id}`,
       {
         nombre: data.nombre,
         codigoFacultad: data.codigoFacultad,
