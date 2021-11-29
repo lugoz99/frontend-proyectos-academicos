@@ -114,17 +114,18 @@ export class CrearSolicitudComponent implements OnInit {
     let model = new SolicitudModel();
     model.fechaRadicacion = this.GetDF['fechaRadicacion'].value;
     model.archivo = this.GetDF['archivo'].value;
-    model.asociado = this.GetDF['asociado'].value;
     model.descripcion = this.GetDF['descripcion'].value;
-    model.id_modalidad = this.GetDF['id_modalidad'].value;
-    model.id_area_investigacion = this.GetDF['id_area_investigacion'].value;
-    model.id_tipo_solicitud = this.GetDF['id_tipo_solicitud'].value;
-    model.id_proponente = this.GetDF['id_proponente'].value;
+    model.id_modalidad = Number(this.GetDF['id_modalidad'].value);
+    model.id_area_investigacion = Number(
+      this.GetDF['id_area_investigacion'].value
+    );
+    model.id_tipo_solicitud = Number(this.GetDF['id_tipo_solicitud'].value);
+    model.id_proponente = Number(this.GetDF['id_proponente'].value);
     model.nombreTrabajo = this.GetDF['nombreTrabajo'].value;
     this.service.SaveRecord(model).subscribe({
       next: (data: SolicitudModel) => {
         ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
-        this.router.navigate(['/parameters/listar-solicitud']);
+        this.router.navigate(['/solicitudes/listar-solicitud']);
       },
     });
   }
