@@ -1,15 +1,152 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ConfigurationData } from 'src/app/config/configurationData';
+import { AreaInvestigacionModel } from 'src/app/models/parametros/areaInvestigacion.model';
+import { ModalidadModel } from 'src/app/models/parametros/modalidad.model';
+import { ProponenteModel } from 'src/app/models/parametros/proponente.model';
+import { SolicitudModel } from 'src/app/models/parametros/solicitud.model';
+import { TipoSolictudModel } from 'src/app/models/parametros/tipoSolicitud.model';
+import { UploadedFile } from 'src/app/models/parametros/uploaded.file.model';
+import { AreaInvestigacionService } from 'src/app/services/parametros/area-investigacion.service';
+import { ModalidadService } from 'src/app/services/parametros/modalidad.service';
+import { ProponenteService } from 'src/app/services/parametros/proponente.service';
+import { SolicitudService } from 'src/app/services/parametros/solicitud.service';
+import { TipoSolicitudService } from 'src/app/services/parametros/tipo-solicitud.service';
+declare const ShowGeneralMessage: any;
+declare const InitSelect: any;
 @Component({
   selector: 'app-crear-solicitud',
   templateUrl: './crear-solicitud.component.html',
-  styleUrls: ['./crear-solicitud.component.css']
+  styleUrls: ['./crear-solicitud.component.css'],
 })
 export class CrearSolicitudComponent implements OnInit {
+  uploadedPhoto: boolean = false;
+  dataForm: FormGroup = new FormGroup({});
+  mainPhotoForm: FormGroup = new FormGroup({});
+  proponenteList: ProponenteModel[] = [];
+  tipoSolicitudList: TipoSolictudModel[] = [];
+  areaInvestigacionList: AreaInvestigacionModel[] = [];
+  modalidadList: ModalidadModel[] = [];
 
-  constructor() { }
+  uploadedFilename?: string = '';
+  url_server: string = ConfigurationData.BUSSINESS_MS_URL;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private service: SolicitudService,
+    private modalidadService: ModalidadService,
+    private tipoSolicitudService: TipoSolicitudService,
+    private proponenteService: ProponenteService,
+    private areateService: AreaInvestigacionService
+  ) {}
 
   ngOnInit(): void {
+    this.FormBuilding();
+    this.FormMainPhoto();
+    this.GetDataForSelects();
+    setTimeout(() => {
+      InitSelect('estado');
+    }, 100);
   }
 
+  GetDataForSelects() {
+    this.modalidadService.GetRecordList().subscribe({
+      next: (data: ModalidadModel[]) => {
+        this.modalidadList = data;
+        setTimeout(() => {
+          InitSelect('selModalidad');
+        }, 100);
+      },
+    });
+    this.tipoSolicitudService.GetRecordList().subscribe({
+      next: (data: TipoSolictudModel[]) => {
+        this.tipoSolicitudList = data;
+        setTimeout(() => {
+          InitSelect('selTipoSolicitud');
+        }, 100);
+      },
+    });
+    this.areateService.GetRecordList().subscribe({
+      next: (data: AreaInvestigacionModel[]) => {
+        this.areaInvestigacionList = data;
+        setTimeout(() => {
+          InitSelect('selArea');
+        }, 100);
+      },
+    });
+    this.proponenteService.GetRecordList().subscribe({
+      next: (data: ProponenteModel[]) => {
+        this.proponenteList = data;
+        setTimeout(() => {
+          InitSelect('selProponente');
+        }, 100);
+      },
+    });
+  }
+
+  FormMainPhoto() {
+    this.mainPhotoForm = this.fb.group({
+      file: ['', []],
+    });
+  }
+
+  FormBuilding() {
+    this.dataForm = this.fb.group({
+      fechaRadicacion: ['', [Validators.required]],
+      nombreTrabajo: ['', [Validators.required]],
+      archivo: ['', [Validators.required]],
+      descripcion: ['', [Validators.required]],
+      estado: ['', [Validators.required]],
+      id_modalidad: ['', [Validators.required]],
+      id_tipo_solicitud: ['', [Validators.required]],
+      id_area_investigacion: ['', [Validators.required]],
+      id_proponente: ['', [Validators.required]],
+    });
+  }
+
+  get GetDF() {
+    return this.dataForm.controls;
+  }
+
+  SaveRecord() {
+    let model = new SolicitudModel();
+    model.fechaRadicacion = this.GetDF['fechaRadicacion'].value;
+    model.archivo = this.GetDF['archivo'].value;
+    model.asociado = this.GetDF['asociado'].value;
+    model.descripcion = this.GetDF['descripcion'].value;
+    model.id_modalidad = this.GetDF['id_modalidad'].value;
+    model.id_area_investigacion = this.GetDF['id_area_investigacion'].value;
+    model.id_tipo_solicitud = this.GetDF['id_tipo_solicitud'].value;
+    model.id_proponente = this.GetDF['id_proponente'].value;
+    model.nombreTrabajo = this.GetDF['nombreTrabajo'].value;
+    this.service.SaveRecord(model).subscribe({
+      next: (data: SolicitudModel) => {
+        ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
+        this.router.navigate(['/parameters/listar-solicitud']);
+      },
+    });
+  }
+
+  // Carga de archivo
+
+  UploadPhoto(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.mainPhotoForm.controls['file'].setValue(file);
+    }
+  }
+
+  SubmitFileToServer() {
+    const form = new FormData();
+    form.append('file', this.mainPhotoForm.controls['file'].value);
+    this.service.UploadMainPhoto(form).subscribe({
+      next: (data: UploadedFile) => {
+        this.dataForm.controls['foto_principal'].setValue(data.filename);
+        this.uploadedPhoto = true;
+        this.uploadedFilename = data.filename;
+      },
+    });
+  }
 }

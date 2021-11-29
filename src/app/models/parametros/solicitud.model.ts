@@ -16,6 +16,6 @@ export class SolicitudModel {
   tipoSolicitud?: TipoSolictudModel;
   id_area_investigacion?: number;
   areaInvestigacion?: AreaInvestigacionModel;
+  asociado?: ProponenteModel;
   id_proponente?: number;
-  proponente?: ProponenteModel;
 }
