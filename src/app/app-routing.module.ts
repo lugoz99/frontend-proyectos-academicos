@@ -30,6 +30,14 @@ const routes: Routes = [
       ),
   },
   {
+    //lazing loading
+    path: 'solicitudes',
+    loadChildren: () =>
+      import('./modules/solicitudes/solicitud.module').then(
+        (x) => x.SolicitudModule
+      ),
+  },
+  {
     /// debe estar al final
     path: '**',
     component: NotFoundComponent,
