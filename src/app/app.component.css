@@ -1,0 +1,7 @@
+.container-flex {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}

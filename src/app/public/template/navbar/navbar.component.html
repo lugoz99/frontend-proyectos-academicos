@@ -1,26 +1,55 @@
-<nav>
-	<div class="nav-wrapper gray-gradient teal">
-		<a routerLink="home" class="brand-logo">Inicio</a>
-		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-		<ul class="right hide-on-med-and-down">
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-tipoVinculacion">Tipo Vinculacion</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-tiposComite">Tipos Comite</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-areaInvestigacion">Area de Investigacion</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-facultad">Facultad</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-departamento">Departamento</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-tipoSolicitud">Tipo Solicitud</a></li>
-			<li *ngIf="activeSession"><a routerLink="parametros/listar-correoNotificacion">Correo Notificacion</a></li>
-			<li *ngIf="activeSession"><a routerLink="solicitudes/listar-solicitud">Solicitudes</a></li>
+<!-- <nav class="light-blue">
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">Logo</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li *ngIf="!activeSession"><a routerLink="seguridad/inicio-sesion">Inicio Sesion</a></li>
 			<li *ngIf="activeSession"><a routerLink="seguridad/cerrar-sesion">Cerrar Sesion</a></li>
 		</ul>
 	</div>
-</nav>
+</nav> -->
 
-<ul class="sidenav" id="mobile-demo">
-	<li><a href="sass.html">Sass</a></li>
-	<li><a href="badges.html">Components</a></li>
-	<li><a href="collapsible.html">Javascript</a></li>
-	<li><a href="mobile.html">Mobile</a></li>
+<ul id="slide-out" class="sidenav">
+	<ul>
+		<ul class="collapsible">
+			<li>
+				<div class=" collapsible-header"><i class="material-icons">filter_drama</i>Parametrizacion</div>
+				<div class="collapsible-body">
+					<span>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-tipoVinculacion">Tipo Vinculacion</a>
+			</li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-tiposComite">Tipos Comite</a></li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-areaInvestigacion">Area de
+					Investigacion</a></li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-facultad">Facultad</a></li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-departamento">Departamento</a></li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-tipoSolicitud">Tipo Solicitud</a></li>
+			<li *ngIf="activeSession"><a routerLink="parametros/listar-correoNotificacion">Correo
+					Notificacion</a></li>
+			</span>
+
+			</div>
+			</li>
+
+		</ul>
+	</ul>
 </ul>
+<div class="nav teal">
+	<nav class="light-blue">
+		<div class="nav-wrapper">
+			<div class="nav-item">
+				<div *ngIf="activeSession">
+					<a routerLink="home" class="brand-logo">Inicio</a>
+				</div>
+				<ul *ngIf="activeSession">
+					<a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
+							class="material-icons">menu</i></a>
+				</ul>
+			</div>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li *ngIf="!activeSession"><a routerLink="seguridad/inicio-sesion">Inicio Sesion</a></li>
+				<li *ngIf="activeSession"><a routerLink="seguridad/cerrar-sesion">Cerrar Sesion</a></li>
+			</ul>
+		</div>
+	</nav>
+</div>

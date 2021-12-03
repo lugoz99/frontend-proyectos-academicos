@@ -1,0 +1,17 @@
+.nav-item {
+  display: flex;
+  width: 30%;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item div {
+  width: 20%;
+  margin-left: 15px;
+}
+.nav-item ul {
+  width: 20%;
+  margin-left: 180px;
+}
