@@ -17,6 +17,7 @@ export class ListarFacultadComponent implements OnInit {
   ShowRecordList() {
     this.service.GetRecordList().subscribe({
       next: (data: FacultadModel[]) => {
+        console.log('Listar facultad', data);
         this.recordList = data;
       },
     });

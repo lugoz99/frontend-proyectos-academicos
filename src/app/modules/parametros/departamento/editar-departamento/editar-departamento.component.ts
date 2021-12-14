@@ -57,7 +57,7 @@ export class EditarDepartamentoComponent implements OnInit {
     model.id_facultad = Number(this.GetDF['facultadId'].value);
     console.log('lfdlkf', model.nombre);
     console.log('id-facultad', model.id_facultad);
-    this.service.SaveRecord(model).subscribe({
+    this.service.EditRecord(model).subscribe({
       next: (data: DepartamentoModel) => {
         ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
         this.router.navigate(['/parametros/listar-departamento']);

@@ -82,9 +82,9 @@ export class SolicitudService {
     });
   }
 
-  UploadMainPhoto(form: FormData): Observable<UploadedFile> {
+  UploadMainRequest(form: FormData): Observable<UploadedFile> {
     return this.http.post<UploadedFile>(
-      `${this.url}/CargarImagenPrincipalVehiculo`,
+      `${this.url}/CargarDocumentoSolicitud`,
       form,
       {
         headers: new HttpHeaders({

@@ -56,6 +56,7 @@ export class ProponenteService {
     return this.http.put<ProponenteModel>(
       `${this.url}/proponentes/${data.id}`,
       {
+        id: data.id,
         documento: data.documento,
         primerNombre: data.primerNombre,
         otrosNombres: data.otrosNombres,
@@ -63,7 +64,6 @@ export class ProponenteService {
         segundoApellido: data.segundoApellido,
         correo: data.correo,
         celular: data.celular,
-        foto: data.foto,
         id_tipo_vinculacion: data.id_tipo_vinculacion,
       },
       {

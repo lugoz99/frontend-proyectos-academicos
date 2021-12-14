@@ -34,6 +34,7 @@ export class CrearFacultadComponent implements OnInit {
     let model = new FacultadModel();
     model.nombre = this.GetDF['nombre'].value;
     model.codigoFacultad = this.GetDF['codigo'].value;
+    console.log('Guardar facultad', model);
     this.service.SaveRecord(model).subscribe({
       next: (data: FacultadModel) => {
         ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);

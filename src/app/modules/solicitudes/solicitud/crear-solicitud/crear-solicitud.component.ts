@@ -23,7 +23,7 @@ declare const InitSelect: any;
 export class CrearSolicitudComponent implements OnInit {
   uploadedPhoto: boolean = false;
   dataForm: FormGroup = new FormGroup({});
-  mainPhotoForm: FormGroup = new FormGroup({});
+  mainRequestForm: FormGroup = new FormGroup({});
   proponenteList: ProponenteModel[] = [];
   tipoSolicitudList: TipoSolictudModel[] = [];
   areaInvestigacionList: AreaInvestigacionModel[] = [];
@@ -87,7 +87,7 @@ export class CrearSolicitudComponent implements OnInit {
   }
 
   FormMainPhoto() {
-    this.mainPhotoForm = this.fb.group({
+    this.mainRequestForm = this.fb.group({
       file: ['', []],
     });
   }
@@ -116,6 +116,7 @@ export class CrearSolicitudComponent implements OnInit {
     model.archivo = this.GetDF['archivo'].value;
     model.descripcion = this.GetDF['descripcion'].value;
     model.id_modalidad = Number(this.GetDF['id_modalidad'].value);
+    console.log('Modalidad ', model.id_modalidad);
     model.id_area_investigacion = Number(
       this.GetDF['id_area_investigacion'].value
     );
@@ -132,19 +133,19 @@ export class CrearSolicitudComponent implements OnInit {
 
   // Carga de archivo
 
-  UploadPhoto(event: any) {
+  UploadRequest(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.mainPhotoForm.controls['file'].setValue(file);
+      this.mainRequestForm.controls['file'].setValue(file);
     }
   }
 
   SubmitFileToServer() {
     const form = new FormData();
-    form.append('file', this.mainPhotoForm.controls['file'].value);
-    this.service.UploadMainPhoto(form).subscribe({
+    form.append('file', this.mainRequestForm.controls['file'].value);
+    this.service.UploadMainRequest(form).subscribe({
       next: (data: UploadedFile) => {
-        this.dataForm.controls['foto_principal'].setValue(data.filename);
+        this.dataForm.controls['archivo'].setValue(data.filename);
         this.uploadedPhoto = true;
         this.uploadedFilename = data.filename;
       },

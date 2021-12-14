@@ -8,6 +8,7 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
+
   {
     path: '',
     pathMatch: 'full',
@@ -35,6 +36,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/solicitudes/solicitud.module').then(
         (x) => x.SolicitudModule
+      ),
+  },
+  {
+    //lazing loading
+    path: 'proponentes',
+    loadChildren: () =>
+      import('./modules/proponentes/proponentes.module').then(
+        (x) => x.ProponentesModule
       ),
   },
   {

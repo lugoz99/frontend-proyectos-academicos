@@ -23,13 +23,6 @@ export class ListarSolicitudComponent implements OnInit {
   ShowRecordList() {
     this.service.GetRecordList().subscribe({
       next: (data: SolicitudModel[]) => {
-        console.log('data solicitud');
-        data.forEach((element) => {
-          console.log(element);
-          console.log(element.id_proponente);
-          console.log(element.asociado?.primerApellido);
-          console.log(element.asociado);
-        });
         this.recordList = data;
       },
     });

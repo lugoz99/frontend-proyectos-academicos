@@ -16,6 +16,10 @@ import { CrearFacultadComponent } from './facultad/crear-facultad/crear-facultad
 import { EditarFacultadComponent } from './facultad/editar-facultad/editar-facultad.component';
 import { EliminarFacultadComponent } from './facultad/eliminar-facultad/eliminar-facultad.component';
 import { ListarFacultadComponent } from './facultad/listar-facultad/listar-facultad.component';
+import { CrearJuradoComponent } from './jurado/crear-jurado/crear-jurado.component';
+import { EditarJuradoComponent } from './jurado/editar-jurado/editar-jurado.component';
+import { EliminarJuradoComponent } from './jurado/eliminar-jurado/eliminar-jurado.component';
+import { ListarJuradoComponent } from './jurado/listar-jurado/listar-jurado.component';
 import { CrearModalidadComponent } from './modalidad/crear-modalidad/crear-modalidad.component';
 import { EditarModalidadComponent } from './modalidad/editar-modalidad/editar-modalidad.component';
 import { EliminarModalidadComponent } from './modalidad/eliminar-modalidad/eliminar-modalidad.component';
@@ -176,6 +180,23 @@ const routes: Routes = [
   {
     path: 'eliminar-correoNotificacion/:id',
     component: EliminarCorreoNotificacionComponent,
+  },
+  // ruta Jurados
+  {
+    path: 'listar-jurado',
+    component: ListarJuradoComponent,
+  },
+  {
+    path: 'crear-jurado',
+    component: CrearJuradoComponent,
+  },
+  {
+    path: 'editar-jurado/:id',
+    component: EditarJuradoComponent,
+  },
+  {
+    path: 'eliminar-jurado/:id',
+    component: EliminarJuradoComponent,
   },
 ];
 

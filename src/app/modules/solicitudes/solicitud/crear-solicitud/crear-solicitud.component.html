@@ -1,14 +1,14 @@
 <div class="row">
-	<form [formGroup]="mainPhotoForm" class="col s12">
+	<form [formGroup]="mainRequestForm" class="col s12">
 		<div class="row">
 			<div class="col s12 center-align">
-				<img *ngIf="uploadedPhoto" src="{{url_server}}/archivo/1/{{uploadedFilename}}"
+				<img *ngIf="UploadRequest" src="{{url_server}}/archivo/1/{{uploadedFilename}}"
 					class="vehiclePhoto center-align">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col s12 center-align">
-				<input class="btn orange" type="file" (change)="UploadPhoto($event)" name="image" />
+				<input class="btn orange" type="file" (change)="UploadRequest($event)" name="format" />
 				&nbsp;<button class="btn btn-success " type="button" (click)="SubmitFileToServer()"> Cargar
 					Archivo</button>
 			</div>
@@ -75,4 +75,4 @@
 			</div>
 		</div>
 	</form>
-</div>>
+</div>

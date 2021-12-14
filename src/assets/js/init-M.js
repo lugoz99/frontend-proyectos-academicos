@@ -25,3 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     inDuration: 250,
   });
 });
+
+// $("#textarea1").val("New Text");
+// M.textareaAutoResize($("#textarea1"));

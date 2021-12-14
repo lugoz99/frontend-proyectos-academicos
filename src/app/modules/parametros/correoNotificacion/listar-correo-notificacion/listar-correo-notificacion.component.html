@@ -30,7 +30,7 @@
 					{{r.correo}}
 				</td>
 				<td>
-					{{r.estado}}
+					{{r.estado? 'Disponible':'No Disponible'}}
 				</td>
 				<td>
 					<a routerLink="/parametros/editar-correoNotificacion/{{r.id}}"

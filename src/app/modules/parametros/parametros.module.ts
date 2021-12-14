@@ -31,7 +31,7 @@ import { EliminarAreaInvestigacionComponent } from './areaInvestigacion/eliminar
 import { ListarAreaInvestigacionComponent } from './areaInvestigacion/listar-area-investigacion/listar-area-investigacion.component';
 import { EditarAreaInvestigacionComponent } from './areaInvestigacion/editar-area-investigacion/editar-area-investigacion.component';
 import { CrearJuradoComponent } from './jurado/crear-jurado/crear-jurado.component';
-import { CrearEditarComponent } from './jurado/crear-editar/crear-editar.component';
+import { EliminarJuradoComponent } from './jurado/eliminar-jurado/eliminar-jurado.component';
 import { EditarJuradoComponent } from './jurado/editar-jurado/editar-jurado.component';
 import { ListarJuradoComponent } from './jurado/listar-jurado/listar-jurado.component';
 import { CrearCorreoNotificacionComponent } from './correoNotificacion/crear-correo-notificacion/crear-correo-notificacion.component';
@@ -71,7 +71,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListarAreaInvestigacionComponent,
     EditarAreaInvestigacionComponent,
     CrearJuradoComponent,
-    CrearEditarComponent,
+    EliminarJuradoComponent,
     EditarJuradoComponent,
     ListarJuradoComponent,
     CrearCorreoNotificacionComponent,
