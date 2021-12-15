@@ -45,12 +45,15 @@ export class EvaluacionSolicitudService {
       }
     );
   }
+
   RequestResponse(
-    data: RespuestaInvitacionModel
-  ): Observable<RespuestaInvitacionModel> {
-    return this.http.patch<RespuestaInvitacionModel>(
+    data: evaluacionSolicitudModel
+  ): Observable<evaluacionSolicitudModel> {
+    return this.http.patch<evaluacionSolicitudModel>(
       `${this.url}/aceptar-solicitud/${data.id}`,
       {
+        id_jurado: data.id_jurado,
+        id_solicitud: data.id_solicitud,
         respuesta: data.respuesta,
         observaciones: data.observaciones,
       }

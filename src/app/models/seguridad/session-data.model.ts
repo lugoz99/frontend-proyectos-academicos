@@ -4,4 +4,5 @@ export class SessionDataModel {
   token?: string;
   usuario?: UserDataModel;
   isLoggedIn: boolean = false; //esta logeado
+  isAdmin: boolean = false;
 }

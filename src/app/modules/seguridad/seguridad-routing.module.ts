@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
+import { UnauthenticatedGuard } from 'src/app/guards/unauthenticated.guard';
 import { CambiarClaveComponent } from './general/cambiar-clave/cambiar-clave.component';
 import { CerrarSesionComponent } from './general/cerrar-sesion/cerrar-sesion.component';
 import { InicioSesionComponent } from './general/inicio-sesion/inicio-sesion.component';
@@ -13,34 +15,42 @@ const routes: Routes = [
   {
     path: 'inicio-sesion',
     component: InicioSesionComponent,
+    canActivate: [UnauthenticatedGuard],
   },
   {
     path: 'cerrar-sesion',
     component: CerrarSesionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'cambiar-clave',
     component: CambiarClaveComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'recuperar-clave',
     component: RecuperarClaveComponent,
+    canActivate: [UnauthenticatedGuard],
   },
   {
     path: 'crear-usuario',
     component: CrearUsuarioComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-usuario',
     component: EditarUsuarioComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-usuario',
     component: EliminarUsuarioComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'listar-usuario',
     component: ListarUsuarioComponent,
+    canActivate: [AuthenticatedGuard],
   },
 ];
 

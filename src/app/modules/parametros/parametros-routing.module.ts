@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { CrearAreaInvestigacionComponent } from './areaInvestigacion/crear-area-investigacion/crear-area-investigacion.component';
 import { EditarAreaInvestigacionComponent } from './areaInvestigacion/editar-area-investigacion/editar-area-investigacion.component';
 import { EliminarAreaInvestigacionComponent } from './areaInvestigacion/eliminar-area-investigacion/eliminar-area-investigacion.component';
@@ -42,161 +43,197 @@ const routes: Routes = [
   {
     path: 'listar-modalidad',
     component: ListarModalidadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-modalidad',
     component: CrearModalidadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-modalidad/:id',
     component: EditarModalidadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-modalidad/:id',
     component: EliminarModalidadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   /****************************************************************** */
   // Rutas Tipo vinculacion
   {
     path: 'listar-tipoVinculacion',
     component: ListarTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-tipoVinculacion',
     component: CrearTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-tipoVinculacion/:id',
     component: EditarTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-tipoVinculacion/:id',
     component: EliminarTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   /****************************************************************** */
   // Rutas Tipos Comite
   {
     path: 'listar-tiposComite',
     component: ListarTiposComiteComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-tiposComite',
     component: CrearTiposComiteComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-tiposComite/:id',
     component: EditarTiposComiteComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-tiposComite/:id',
     component: EliminarTiposComiteComponent,
+    canActivate: [AuthenticatedGuard],
   },
   /****************************************************************** */
   // Rutas Area Investigacion
   {
     path: 'listar-areaInvestigacion',
     component: ListarAreaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-areaInvestigacion',
     component: CrearAreaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-areaInvestigacion/:id',
     component: EditarAreaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-areaInvestigacion/:id',
     component: EliminarAreaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   /****************************************************************** */
   // Rutas Facultad
   {
     path: 'listar-facultad',
     component: ListarFacultadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-facultad',
     component: CrearFacultadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-facultad/:id',
     component: EditarFacultadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-facultad/:id',
     component: EliminarFacultadComponent,
+    canActivate: [AuthenticatedGuard],
   },
   /***************************************************************************/
   //Ruta Departamento
   {
     path: 'listar-departamento',
     component: ListarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-departamento',
     component: CrearDepartamentoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-departamento/:id',
     component: EditarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-departamento/:id',
     component: EliminarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   // **********************************************************************
   // ruta tipoSolicitud
   {
     path: 'listar-tipoSolicitud',
     component: ListarTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-tipoSolicitud',
     component: CrearTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-tipoSolicitud/:id',
     component: EliminarTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-tipoSolicitud/:id',
     component: EditarTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard],
   },
   // **********************************************************************
   // ruta correoNotificacion
   {
     path: 'listar-correoNotificacion',
     component: ListarCorreoNotificacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-correoNotificacion',
     component: CrearCorreoNotificacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-correoNotificacion/:id',
     component: EditarCorreoNotificacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-correoNotificacion/:id',
     component: EliminarCorreoNotificacionComponent,
+    canActivate: [AuthenticatedGuard],
   },
   // ruta Jurados
   {
     path: 'listar-jurado',
     component: ListarJuradoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'crear-jurado',
     component: CrearJuradoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'editar-jurado/:id',
     component: EditarJuradoComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: 'eliminar-jurado/:id',
     component: EliminarJuradoComponent,
+    canActivate: [AuthenticatedGuard],
   },
 ];
 

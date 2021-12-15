@@ -1,9 +1,9 @@
 <br />
 <a routerLink="/solicitudes/crear-solicitud" class="btn btn-success">Agregar Registro</a>
 
-<fieldset>
+<fieldset class="row">
 	<legend>Listado de Registros</legend>
-	<table>
+	<table class="bordered highlight">
 		<thead>
 			<tr>
 				<th>
@@ -59,8 +59,10 @@
 				<td>
 					{{r.descripcion}}
 				</td>
-				<td>
-					{{r.estado}}
+				<td [ngSwitch]="r.estado">
+					<span *ngSwitchCase=0>asignado</span>
+					<span *ngSwitchCase=1>en evaluacion</span>
+					<span *ngSwitchCase=2>evaluado</span>
 				</td>
 				<td>
 					{{r.modalidad?.nombre}}

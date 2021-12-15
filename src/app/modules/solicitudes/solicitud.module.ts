@@ -14,6 +14,11 @@ import { EditarInvitacionComponent } from './invitacion/editar-invitacion/editar
 import { ListarInvitacionComponent } from './invitacion/listar-invitacion/listar-invitacion.component';
 import { EliminarInvitacionComponent } from './invitacion/eliminar-invitacion/eliminar-invitacion.component';
 import { RespuestaInvitacionComponent } from './invitacion/respuesta-invitacion/respuesta-invitacion.component';
+import { CrearRecordatorioComponent } from './recordatorio/crear-recordatorio/crear-recordatorio.component';
+import { ListarRecordatorioComponent } from './recordatorio/listar-recordatorio/listar-recordatorio.component';
+import { EliminarRecordatorioComponent } from './recordatorio/eliminar-recordatorio/eliminar-recordatorio.component';
+import { ListarResultadoEvaluacionComponent } from './resultadoEvaluacion/listar-resultado-evaluacion/listar-resultado-evaluacion.component';
+import { EditarResultadoEvaluacionComponent } from './resultadoEvaluacion/editar-resultado-evaluacion/editar-resultado-evaluacion.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import { RespuestaInvitacionComponent } from './invitacion/respuesta-invitacion/
     ListarInvitacionComponent,
     EliminarInvitacionComponent,
     RespuestaInvitacionComponent,
+    CrearRecordatorioComponent,
+    ListarRecordatorioComponent,
+    EliminarRecordatorioComponent,
+    ListarResultadoEvaluacionComponent,
+    EditarResultadoEvaluacionComponent,
   ],
   imports: [
     CommonModule,
